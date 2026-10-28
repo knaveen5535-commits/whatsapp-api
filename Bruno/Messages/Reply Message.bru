@@ -1,0 +1,28 @@
+meta {
+  name: Reply Message
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/messages/reply
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "chatId": "{{chatId}}",
+    "text": "This is a reply",
+    "quotedMessageId": "{{messageId}}"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

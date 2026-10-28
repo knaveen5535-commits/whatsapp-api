@@ -1,0 +1,19 @@
+meta {
+  name: Start Session
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/start
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

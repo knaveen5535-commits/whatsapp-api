@@ -1,0 +1,19 @@
+meta {
+  name: Get Contacts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/contacts
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
