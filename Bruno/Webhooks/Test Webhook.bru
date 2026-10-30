@@ -1,0 +1,22 @@
+meta {
+  name: Test Webhook
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/webhooks/{{webhookId}}/test
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+
+body:json {}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
