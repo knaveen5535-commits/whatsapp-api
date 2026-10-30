@@ -1,0 +1,15 @@
+meta {
+  name: Stop Session
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/stop
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}

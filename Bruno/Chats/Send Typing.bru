@@ -1,0 +1,23 @@
+meta {
+  name: Send Typing
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/chats/typing
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "chatId": "{{chatId}}",
+    "state": "typing"
+  }
+}

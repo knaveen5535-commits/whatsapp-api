@@ -1,0 +1,15 @@
+meta {
+  name: Get Chats
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/chats?limit=50
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}

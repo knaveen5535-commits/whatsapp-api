@@ -1,0 +1,22 @@
+meta {
+  name: Mark Chat Read
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/chats/read
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "chatId": "{{chatId}}"
+  }
+}
