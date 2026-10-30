@@ -1,0 +1,27 @@
+meta {
+  name: Approve Membership Requests
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/groups/{{groupId}}/membership-requests/approve
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+body:json {
+  {
+    "participants": [
+      "628123456789@c.us"
+    ]
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

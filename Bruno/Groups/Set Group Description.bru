@@ -1,0 +1,25 @@
+meta {
+  name: Set Group Description
+  type: http
+  seq: 16
+}
+
+put {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/groups/{{groupId}}/description
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+body:json {
+  {
+    "description": "New group description"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

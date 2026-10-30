@@ -1,0 +1,19 @@
+meta {
+  name: Get Group
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/groups/{{groupId}}
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

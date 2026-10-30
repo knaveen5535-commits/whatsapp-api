@@ -1,0 +1,25 @@
+meta {
+  name: Set Group Subject
+  type: http
+  seq: 15
+}
+
+put {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/groups/{{groupId}}/subject
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+body:json {
+  {
+    "subject": "New Group Name"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
