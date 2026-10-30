@@ -1,0 +1,19 @@
+meta {
+  name: Remove Label From Chat
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/labels/chat/{{chatId}}/{{labelId}}
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

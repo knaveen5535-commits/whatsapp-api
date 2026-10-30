@@ -1,0 +1,26 @@
+meta {
+  name: Upsert Label
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/labels/{{labelId}}
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "Important",
+    "color": 0
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

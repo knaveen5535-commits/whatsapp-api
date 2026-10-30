@@ -1,0 +1,19 @@
+meta {
+  name: Delete Label
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/labels/{{labelId}}
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

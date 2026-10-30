@@ -1,0 +1,19 @@
+meta {
+  name: Get Chats By Label
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/labels/{{labelId}}/chats
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
