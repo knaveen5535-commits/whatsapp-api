@@ -1,0 +1,32 @@
+meta {
+  name: Send Contact
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-contact
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "chatId": "{{chatId}}",
+    "contacts": [
+      {
+        "name": "John Doe",
+        "phoneNumber": "1234567890"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

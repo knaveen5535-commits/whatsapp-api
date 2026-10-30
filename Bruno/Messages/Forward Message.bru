@@ -1,0 +1,28 @@
+meta {
+  name: Forward Message
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/messages/forward
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "chatId": "{{chatId}}",
+    "toChatId": "{{toChatId}}",
+    "messageId": "{{messageId}}"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
