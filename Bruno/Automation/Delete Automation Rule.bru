@@ -1,0 +1,19 @@
+meta {
+  name: Delete Automation Rule
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/automation-rules/{{ruleId}}
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

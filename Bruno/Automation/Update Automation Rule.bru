@@ -1,0 +1,25 @@
+meta {
+  name: Update Automation Rule
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/automation-rules/{{ruleId}}
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": false
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

@@ -12,7 +12,6 @@ post {
 
 headers {
   x-api-key: {{apiKey}}
-  Content-Type: application/json
 }
 
 body:json {
@@ -22,8 +21,5 @@ body:json {
 }
 
 vars:pre-request {
-  baseUrl: '''
-    http://localhost:2785
-    
-  '''
+  baseUrl: http://localhost:2785
 }

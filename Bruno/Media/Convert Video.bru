@@ -1,0 +1,25 @@
+meta {
+  name: Convert Video
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/media/convert/video
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+body:json {
+  {
+    "url": "https://example.com/video.mp4"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
