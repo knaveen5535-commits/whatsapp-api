@@ -1,0 +1,27 @@
+meta {
+  name: Update Template
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/templates/{{templateId}}
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "greeting",
+    "content": "Hi {{name}}, welcome to our service!",
+    "language": "en"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
