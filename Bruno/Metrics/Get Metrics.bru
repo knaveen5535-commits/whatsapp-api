@@ -1,0 +1,19 @@
+meta {
+  name: Get Metrics
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/metrics
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{metricsToken}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
