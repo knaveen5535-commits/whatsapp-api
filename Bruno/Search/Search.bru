@@ -1,0 +1,23 @@
+meta {
+  name: Search
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/search
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+query {
+  q: hello
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
