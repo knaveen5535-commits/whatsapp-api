@@ -1,0 +1,25 @@
+meta {
+  name: Update Contact
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/contacts/{{contactId}}
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "John Doe"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}

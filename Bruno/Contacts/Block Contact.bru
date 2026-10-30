@@ -1,0 +1,19 @@
+meta {
+  name: Block Contact
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/contacts/{{contactId}}/block
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+}
