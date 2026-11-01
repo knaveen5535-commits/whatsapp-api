@@ -17,12 +17,90 @@ headers {
 body:json {
   {
     "name": "greeting",
-    "content": "Hi {{name}}, welcome to our service!",
-    "language": "en"
+    "body": "Hi {{name}}, welcome to our service!"
   }
 }
 
 vars:pre-request {
   baseUrl: http://localhost:2785
   apiKey: 80d875d73cf6fce949766f1d447c82766f0efc054b5fc07b6d5c89d539df11f8
+  sessionId: 30ba7e8a-0838-4adf-ba3f-7c10da6a8100
+  templateId: 37b2a469-fcba-4257-a34b-4ab780a36665
+  name: naveen
+}
+
+example {
+  name: Success
+  
+  request: {
+    url: {{baseUrl}}/api/sessions/{{sessionId}}/templates/{{templateId}}
+    method: PUT
+    mode: json
+    headers: {
+      x-api-key: {{apiKey}}
+    }
+  
+    body:json: {
+      {
+        "name": "greeting",
+        "body": "Hi {{name}}, welcome to our service!"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-request-id: a90b4f18-4487-4a6d-b236-5fef79cf076a
+      content-security-policy: default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self' data: blob: https:;object-src 'none';script-src 'self' 'nonce-TwJrt_CI-DEbho2fjBzkxMUL';script-src-attr 'none';style-src 'self' 'unsafe-inline';media-src 'self' data: blob: https:;connect-src 'self'
+      cross-origin-opener-policy: same-origin
+      cross-origin-resource-policy: cross-origin
+      origin-agent-cluster: ?1
+      referrer-policy: strict-origin-when-cross-origin
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: off
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: 0
+      vary: Origin
+      access-control-expose-headers: X-RateLimit-Limit-short,X-RateLimit-Remaining-short,X-RateLimit-Reset-short,X-RateLimit-Limit-medium,X-RateLimit-Remaining-medium,X-RateLimit-Reset-medium,X-RateLimit-Limit-long,X-RateLimit-Remaining-long,X-RateLimit-Reset-long,X-RateLimit-Limit-instance,X-RateLimit-Remaining-instance,X-RateLimit-Reset-instance,X-RateLimit-Limit-ingress-ip,X-RateLimit-Remaining-ingress-ip,X-RateLimit-Reset-ingress-ip,Retry-After,Retry-After-short,Retry-After-medium,Retry-After-long,Retry-After-instance,Retry-After-ingress-ip,Idempotent-Replayed
+      x-ratelimit-limit-short: 10
+      x-ratelimit-remaining-short: 9
+      x-ratelimit-reset-short: 1
+      x-ratelimit-limit-medium: 100
+      x-ratelimit-remaining-medium: 98
+      x-ratelimit-reset-medium: 19
+      x-ratelimit-limit-long: 1000
+      x-ratelimit-remaining-long: 998
+      x-ratelimit-reset-long: 3559
+      content-type: application/json; charset=utf-8
+      content-length: 264
+      etag: W/"108-7m2okqtXwCAKcOooJUG21uOwX7g"
+      date: Sun, 01 Nov 2026 14:16:14 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "37b2a469-fcba-4257-a34b-4ab780a36665",
+          "sessionId": "30ba7e8a-0838-4adf-ba3f-7c10da6a8100",
+          "name": "greeting",
+          "body": "Hi naveen, welcome to our service!",
+          "header": null,
+          "footer": null,
+          "createdAt": "2026-11-01T10:41:22.000Z",
+          "updatedAt": "2026-11-01T14:16:14.000Z"
+        }
+      '''
+    }
+  }
 }
