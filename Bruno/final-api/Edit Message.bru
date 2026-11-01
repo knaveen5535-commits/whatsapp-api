@@ -1,0 +1,104 @@
+meta {
+  name: Edit Message
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/messages/edit
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "chatId": "{{chatId}}",
+    "messageId": "{{messageId}}",
+    "body": "Hello Nakshatara, Welcome"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+  apiKey: 80d875d73cf6fce949766f1d447c82766f0efc054b5fc07b6d5c89d539df11f8
+  sessionId: 30ba7e8a-0838-4adf-ba3f-7c10da6a8100
+  chatId: 121479341568027@lid
+  messageId: true_121479341568027@lid_3EB01F956EECC08294CC77
+}
+
+example {
+  name: 200 - Success
+  
+  request: {
+    url: {{baseUrl}}/api/sessions/{{sessionId}}/messages/edit
+    method: POST
+    mode: json
+    headers: {
+      x-api-key: {{apiKey}}
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+        "chatId": "{{chatId}}",
+        "messageId": "{{messageId}}",
+        "body": "Hello Nakshatara, Welcome"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-request-id: 742d4eed-0cbf-4870-90a4-adf8b367c6f1
+      content-security-policy: default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self' data: blob: https:;object-src 'none';script-src 'self' 'nonce-7CW1izCG-vZ9f6B_e33nO1XX';script-src-attr 'none';style-src 'self' 'unsafe-inline';media-src 'self' data: blob: https:;connect-src 'self'
+      cross-origin-opener-policy: same-origin
+      cross-origin-resource-policy: cross-origin
+      origin-agent-cluster: ?1
+      referrer-policy: strict-origin-when-cross-origin
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: off
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: 0
+      vary: Origin
+      access-control-expose-headers: X-RateLimit-Limit-short,X-RateLimit-Remaining-short,X-RateLimit-Reset-short,X-RateLimit-Limit-medium,X-RateLimit-Remaining-medium,X-RateLimit-Reset-medium,X-RateLimit-Limit-long,X-RateLimit-Remaining-long,X-RateLimit-Reset-long,X-RateLimit-Limit-instance,X-RateLimit-Remaining-instance,X-RateLimit-Reset-instance,X-RateLimit-Limit-ingress-ip,X-RateLimit-Remaining-ingress-ip,X-RateLimit-Reset-ingress-ip,Retry-After,Retry-After-short,Retry-After-medium,Retry-After-long,Retry-After-instance,Retry-After-ingress-ip,Idempotent-Replayed
+      x-ratelimit-limit-short: 10
+      x-ratelimit-remaining-short: 9
+      x-ratelimit-reset-short: 1
+      x-ratelimit-limit-medium: 100
+      x-ratelimit-remaining-medium: 98
+      x-ratelimit-reset-medium: 51
+      x-ratelimit-limit-long: 1000
+      x-ratelimit-remaining-long: 982
+      x-ratelimit-reset-long: 3294
+      content-type: application/json; charset=utf-8
+      content-length: 86
+      etag: W/"56-YMlWIAD9Z6fyVqlFZECM2t74cPE"
+      date: Sun, 01 Nov 2026 10:52:12 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "messageId": "true_121479341568027@lid_3EB01F956EECC08294CC77",
+          "timestamp": 1793529918
+        }
+      '''
+    }
+  }
+}

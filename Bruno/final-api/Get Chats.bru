@@ -1,0 +1,715 @@
+meta {
+  name: Get Chats
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/chats?limit=50
+  body: none
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+}
+
+vars:pre-request {
+  apiKey: 80d875d73cf6fce949766f1d447c82766f0efc054b5fc07b6d5c89d539df11f8
+  baseUrl: http://localhost:2785
+  sessionId: 30ba7e8a-0838-4adf-ba3f-7c10da6a8100
+}
+
+example {
+  name: 200 - Success
+  
+  request: {
+    url: {{baseUrl}}/api/sessions/{{sessionId}}/chats?limit=50
+    method: GET
+    mode: none
+    headers: {
+      x-api-key: {{apiKey}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-request-id: 7f8c9c64-f764-41d0-a27a-52da3d8208e7
+      content-security-policy: default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self' data: blob: https:;object-src 'none';script-src 'self' 'nonce-ai07qDH2tDzdXks8zb53ZeaD';script-src-attr 'none';style-src 'self' 'unsafe-inline';media-src 'self' data: blob: https:;connect-src 'self'
+      cross-origin-opener-policy: same-origin
+      cross-origin-resource-policy: cross-origin
+      origin-agent-cluster: ?1
+      referrer-policy: strict-origin-when-cross-origin
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: off
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: 0
+      vary: Origin
+      access-control-expose-headers: X-RateLimit-Limit-short,X-RateLimit-Remaining-short,X-RateLimit-Reset-short,X-RateLimit-Limit-medium,X-RateLimit-Remaining-medium,X-RateLimit-Reset-medium,X-RateLimit-Limit-long,X-RateLimit-Remaining-long,X-RateLimit-Reset-long,X-RateLimit-Limit-instance,X-RateLimit-Remaining-instance,X-RateLimit-Reset-instance,X-RateLimit-Limit-ingress-ip,X-RateLimit-Remaining-ingress-ip,X-RateLimit-Reset-ingress-ip,Retry-After,Retry-After-short,Retry-After-medium,Retry-After-long,Retry-After-instance,Retry-After-ingress-ip,Idempotent-Replayed
+      x-ratelimit-limit-short: 10
+      x-ratelimit-remaining-short: 9
+      x-ratelimit-reset-short: 1
+      x-ratelimit-limit-medium: 100
+      x-ratelimit-remaining-medium: 99
+      x-ratelimit-reset-medium: 60
+      x-ratelimit-limit-long: 1000
+      x-ratelimit-remaining-long: 999
+      x-ratelimit-reset-long: 3600
+      content-type: application/json; charset=utf-8
+      content-length: 22796
+      etag: W/"590c-vnXOx9xiMJ40IrIAGwTqzf5kOK8"
+      date: Sun, 01 Nov 2026 10:49:13 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        [
+          {
+            "id": "121479341568027@lid",
+            "name": "Nakshatra Akka",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793529918,
+            "lastMessage": "Hello Naveen, welcome!",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "21238781087894@lid",
+            "name": "Abishek Anna Final Year",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793524067,
+            "lastMessage": "Hello from OpenWA!",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "174418705829940@lid",
+            "name": "Naveen",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793522835,
+            "lastMessageType": "voice",
+            "archived": false,
+            "pinned": true,
+            "muted": false
+          },
+          {
+            "id": "170746743623893@lid",
+            "name": "+91 124 610 0740",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793515224,
+            "lastMessage": "🪔 *Light up new possibilities this Diwali*. ✨\n \nBring every festive idea to life with *HP AI PCs*, powered by *Intel® Core™ 7 processor – That's the power of Intel Inside®*. ✨\n \n🎁 *Unwrap exciting festive offers*:\n \n💰 *Instant Bank Cashback* up to ₹*18,000**\n🔄 *Exchange Benefits* up to ₹*25,000**\n🎁 *Da Milano Gift Set* worth ₹10,999 at just ₹*499**\n📆 Up to *36-Month No-Cost EMI**\n🛡️ *3-Yr Warranty + 3-Yr ADP + 3-Yr Antivirus* starting at just ₹*1,999**\n🤖 *Subscription to 6 AI platforms* at just ₹*999**\n🎒 *HyperX Knight Backpack* at just ₹*999**\n🎧 *HyperX Stinger 2 Headset* at just ₹*499**\n🕹️ *Steam Wallet* worth ₹2,000 at just ₹*999**\n\n⏳ *Final call for festive savings*!\n \nVisit your nearest 📍 *HP World Store TODAY* or call 📞 8657568677!\nT&C Apply",
+            "lastMessageType": "unknown",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363403697887235@g.us",
+            "name": "IITB Group for Connecting",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793515219,
+            "lastMessage": "I spent months building a startup. Now, someone else might get the opportunity to take it further.\n\nI'm opening up PropMatik for acquisition.\n\nWhat started as an idea to simplify India's real estate market became an actual technology product — with a live website, working platform, backend infrastructure and AI-powered capabilities.\n\nNow, I'm exploring the possibility of passing it on to someone who can take it to the next level.\n\nHere's what's available:\n\n🏷️ Option 1 – Domain Only\n\n- propmatik.in\n- Brandable identity for a real estate or PropTech business.\n\n💻 Option 2 – Complete Digital Product\n\n- Live PropMatik website\n- Frontend and backend source code\n- Existing product architecture\n- AI-powered features\n- Brand identity and associated digital assets\n\n🏢 Option 3 – Complete Business Acquisition\n\n- PropMatik Private Limited\n- Brand, domain and technology platform\n- Company acquisition through a mutually agreed and legally compliant transaction.\n\nI'm not just selling a domain or a website. I'm offering an opportunity to acquire an already-built starting point in the PropTech space.\n\nWho knows? The next chapter of PropMatik could be written by you.\n\nIf you're a founder, real estate entrepreneur, developer or investor interested in acquiring any of these assets, let's connect.\n\n📩 DM me for details, a product walkthrough and commercial discussion.\n\n#StartupAcquisition #PropTech #Founders #RealEstate #BusinessOpportunity",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363401402228105@g.us",
+            "name": "Idiotic fellows ✨",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793511401,
+            "lastMessage": "12.30 ku saptu vara sonnanga mam",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "23759876575415@lid",
+            "name": "Udenperape",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793510210,
+            "lastMessage": "https://youtube.com/shorts/TGRMSxNfPNE?si=8cyNyUSAZTbaOdsf",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363410063825124@g.us",
+            "name": "Itzz_.MANO._Warriors",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793508944,
+            "lastMessage": "https://chatgpt.com/share/6ae6c58f-dff8-83ec-b0ee-4f78fa6b4b1f?ogimg=plain",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "71648694776025@lid",
+            "name": "sarran anna 🕺",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793464032,
+            "lastMessage": "Discord",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363404858742665@g.us",
+            "name": "II CSE B ( 25-26)",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793456412,
+            "lastMessage": "Dear Students,\n\nI have attached the Data Structures lab programs. Practise all the programs well and be prepared for the DS lab examination and viva.\n\nAll the best",
+            "lastMessageType": "document",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363404784390571@g.us",
+            "name": "21st E-Summit | E-Cell, IIT Bombay (2)",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793442499,
+            "lastMessage": "Hello Everyone,\n\nAsia’s largest student-run entrepreneurship summit is back!\n\nE-Summit’26, IIT Bombay, is scheduled for 12th–13th December 2026 at IIT Bombay, bringing together aspiring entrepreneurs, startup founders, investors, and industry leaders for two days of learning, networking, and exciting opportunities.\n\nKey Highlights:\n\n* Inspiring speaker sessions with renowned industry leaders and successful founders\n* Networking with entrepreneurs, investors, and mentors\n* Competitions, workshops, and startup showcases\n* Startup pitching opportunities with funding of up to ₹35 lakh\n* Internship, job, and incubation opportunities\n\nWebsite: https://ecell.in/esummit\n\nFor further details and queries, feel free to reach out at 9351720387.\n\nWe look forward to welcoming you to E-Summit’26 at IIT Bombay.",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "19714772340868@lid",
+            "name": "+91 99657 99655",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793441319,
+            "lastMessage": "Ok mam",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "158579537502297@lid",
+            "name": "+91 98941 40825",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793426141,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "15479162798219@lid",
+            "name": "Semmozhi Anna",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793424546,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363407732631432@g.us",
+            "name": "AI Product Management Accelerator Series | Product Space",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793423061,
+            "lastMessage": "*[ LAST 2 SEATS LEFT  ]*\n\nWe've kept the *last 2 spots specially for our Community Members.* \n\nBefore everyone heads off for the Diwali break, this is your chance to meet the community in person, network and learn together.\n\n*✅ Complete your registration now:* https://payments.cashfree.com/forms/ps-meetup\n\nIt'll be a small room of founders, CPOs and Product Leaders sharing what's actually changing in PM with AI, what's working, what isn't, and how they're adapting.\n\n*Why should you join us?*\n\n1. Hands-on Workshop: Build AI Agents in 60 mins.\n2. Direct Q&A: Get your questions answered by the experts.\n3. Networking & Group Challenge: Meet people who can shape your career.\n\nSeats are limited, and we're keeping a small, nominal fee, just so the room is filled with people who genuinely want to show up and participate.\n\nWould be great to see you there 💙",
+            "lastMessageType": "image",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363427082306524@g.us",
+            "name": "DM CSE B - BOYS",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793421771,
+            "lastMessage": "IAT 1 and 2 (Discrete mathematics) Question papers.pdf",
+            "lastMessageType": "document",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "0@c.us",
+            "name": "WhatsApp",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793417063,
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "152260969521171@lid",
+            "name": "Boss",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793375953,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "214293802950897@lid",
+            "name": "+91 98943 33095",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793369853,
+            "lastMessageType": "voice",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363413584121808@g.us",
+            "name": "Symposium 2k26",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 2,
+            "timestamp": 1793358772,
+            "lastMessage": "It is postponed to Monday due to delay in finalize the amount",
+            "lastMessageType": "text",
+            "archived": true,
+            "pinned": false,
+            "muted": true,
+            "muteExpiration": 0
+          },
+          {
+            "id": "118635972530272@lid",
+            "name": "Jubair Anna",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793356937,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "239650853642299@lid",
+            "name": "Saif Anna",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793354124,
+            "lastMessage": "Look, the editing text is not visible",
+            "lastMessageType": "image",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363425297733871@g.us",
+            "name": "AI Product Management Micro-Certification | Product Space",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793347815,
+            "lastMessageType": "unknown",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363408259087504@g.us",
+            "name": "Product Space Club | Exclusive Community",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 1,
+            "timestamp": 1793345554,
+            "lastMessage": "*🎁 Free Certification Course: Claude Code for Product Managers*\n\nMost PMs skip Claude Code because they think it’s a developer tool, but it’s really how you turn ideas into working prototypes and data into insights, in minutes. \n\nThat's exactly why we created a completely *FREE Certification Course: Claude Code for Product Managers 🚀*\n\nTo get it, Like & Comment on this LinkedIn post: https://lnkd.in/p/gKwf4JVV\n\n𝗪𝗵𝗮𝘁 𝗬𝗼𝘂’𝗹𝗹 𝗚𝗲𝘁:\n\n1. What Claude Code actually is (explained without jargon).\n2. Setting it up from scratch, even if you’ve never opened a terminal.\n3. Writing prompts that turn a PRD into a clickable prototype.\n4. Analyzing user data, feedback and CSVs in minutes.\n5. Building internal tools, dashboards and automations for your team.\n\nIf you’re a PM, aspiring PM, or switching into product this year, this will put you ahead of 90% of PMs still waiting on engineering for every small experiment. \n\nKeep Building & Keep Growing 💙",
+            "lastMessageType": "image",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "228208809132238@lid",
+            "name": "+91 824 819 6615",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793279826,
+            "lastMessage": "Ok sir",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "94567076511964@lid",
+            "name": "Tameema Naazmi Akka BME",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793267434,
+            "lastMessage": "Okayyyy daaaa",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "49594641719337@lid",
+            "name": "Lavanya Cse",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793266363,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363412546427662@g.us",
+            "name": "Digital menu | Aathavan Restaurant | Nexgenads",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793255660,
+            "lastMessage": "https://menu.1grow.in/aathavan-resturant",
+            "lastMessageType": "unknown",
+            "archived": false,
+            "pinned": true,
+            "muted": false
+          },
+          {
+            "id": "207129730351158@lid",
+            "name": "Vinil Cse 2",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793253970,
+            "lastMessage": "Ethula",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "136043558920387@lid",
+            "name": "Rajesh Manager Aadhavan client",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793253146,
+            "lastMessage": "MENU ITEMS NEW RATE OCT - 26.PDF",
+            "lastMessageType": "document",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "110518887006279@lid",
+            "name": "Pavin New Kg",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793242830,
+            "lastMessage": "Mm",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363405277736068@g.us",
+            "name": "Build Multi-Agent Automation with No-Code Tools | Product Space",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793178278,
+            "lastMessageType": "unknown",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363431452992015@g.us",
+            "name": "2025-2029 PPGIT PLACEMENT BATCH",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793171650,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": true,
+            "muteExpiration": 0
+          },
+          {
+            "id": "149173122896029@lid",
+            "name": "Mythili Mam Aids",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793171156,
+            "lastMessage": "BEGIN:VCARD\nVERSION:3.0\nN:Cse;Praveen;;;\nFN:Praveen Cse\nTEL;type=Mobile;waid=917708207374:+91 77082 07374\nPHOTO;BASE64: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\nEND:VCARD",
+            "lastMessageType": "contact",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "73122455777472@lid",
+            "name": "Vinisha Cse",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793159727,
+            "lastMessage": "So vaara maari irrutha vaa no issues",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363430261830372@g.us",
+            "name": "TRAINING AND INTERNSHIP ( 2ND YEARS)",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793113562,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": true,
+            "muteExpiration": 0
+          },
+          {
+            "id": "143821895676089@lid",
+            "name": "Praveen Cse",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793111365,
+            "lastMessage": "Okkk",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "104054256599171@lid",
+            "name": "Vimal",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793089659,
+            "lastMessageType": "image",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "202138491814131@lid",
+            "name": "Nithish Sir Placement Cell",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793075127,
+            "lastMessage": "https://forms.gle/a4Mm8ZEdV9gTKAPF6\n\nSDC (IAT-  2)\n\nAssessment Link. (10.00 AM - 11.00 AM)",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "103921448169530@lid",
+            "name": "Naresh Ppg Cse",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793071620,
+            "lastMessageType": "image",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "119095802470512@lid",
+            "name": "Vishnu Ppg",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793024575,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363411119592007@g.us",
+            "name": "CA Changemakers",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793021950,
+            "lastMessage": "What is cutoff to get certificate",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "209873878917264@lid",
+            "name": "HARISH bro",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1793020123,
+            "lastMessage": "Dey ?",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363430070269671@g.us",
+            "name": "Placement Guidance Program",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1793007960,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "133118921015539@lid",
+            "name": "Priyanka Frd",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1792997122,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "213331747025065@lid",
+            "name": "Topper",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1792996762,
+            "lastMessageType": "call",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "137314516860987@lid",
+            "name": "Santhosh Kg",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1792939162,
+            "lastMessage": "Ok",
+            "lastMessageType": "text",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "24283963207924@lid",
+            "name": "Vinoth 🫂❣️",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1792939145,
+            "lastMessageType": "voice",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "5936232055025@lid",
+            "name": "+91 73531 64400",
+            "isGroup": false,
+            "kind": "individual",
+            "unreadCount": 0,
+            "timestamp": 1792899441,
+            "lastMessage": "😉 Don't let dust crash\n✨ your Diwali party! 🪔\n \n📝 Cleaning checklist 👇\n🪞 Colin glass-surface cleaner (1L)\n     ~₹229~ *₹176* \n🧹 Lizol surface cleaner (1L)\n    ~₹260~ *₹209*\n🫧 Ariel liquid detergent (4kg)\n    ~₹855~ *₹658*\n  \nDon't miss out on 👇\n🪙 *Extra 5% Off* with SuperCoins*\n\n*T&C apply",
+            "lastMessageType": "unknown",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          },
+          {
+            "id": "120363407631234699@g.us",
+            "name": "BuildHub Events & Hackathons",
+            "isGroup": true,
+            "kind": "group",
+            "unreadCount": 0,
+            "timestamp": 1792825448,
+            "lastMessage": "GOOGLE CLOUD SKILL SPRINT 2026.pdf",
+            "lastMessageType": "document",
+            "archived": false,
+            "pinned": false,
+            "muted": false
+          }
+        ]
+      '''
+    }
+  }
+}

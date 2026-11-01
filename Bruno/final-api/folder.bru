@@ -1,0 +1,563 @@
+meta {
+  name: final-api
+  seq: 17
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  # OpenWA API – Complete API Documentation
+  
+  ## 1. Authentication – Create API Key
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/auth/api-keys
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "name": "Test Key",
+    "role": "operator"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "id": "88c4313f-ff36-4b5d-a71d-2e98de363261",
+    "name": "Test Key",
+    "keyPrefix": "owa_k1_b14c8",
+    "role": "operator",
+    "isActive": true,
+    "usageCount": 0,
+    "createdAt": "2026-11-01T11:10:32.000Z",
+    "apiKey": "[REDACTED]"
+  }
+  ```
+  
+  ## 2. Audit – Get Audit Logs
+  
+  Endpoint:
+  
+  ```
+  GET {{baseUrl}}/api/audit
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "data": [
+      {
+        "id": "b06a7bb5-8320-401f-b1e6-74cb90ca492c",
+        "action": "session_qr_generated",
+        "severity": "info",
+        "apiKeyId": "74213150-475f-438e-ac62-611a0b41f768",
+        "apiKeyName": "Default Admin Key",
+        "sessionId": "2946dca1-fc21-4496-b7a0-c0f54c01be6d",
+        "sessionName": null,
+        "ipAddress": "127.0.0.1",
+        "userAgent": null,
+        "method": null,
+        "path": null,
+        "statusCode": null,
+        "metadata": {
+          "requestId": "2095b09e-bce8-4149-88d1-78b53398ea18"
+        },
+        "errorMessage": null,
+        "createdAt": "2026-10-30T11:24:40.000Z"
+      }
+    ],
+    "total": 87
+  }
+  ```
+  
+  ## 3. Check Number – Verify WhatsApp Number
+  
+  Endpoint:
+  
+  ```
+  GET {{baseUrl}}/api/sessions/{{sessionId}}/contacts/check/{{phoneNumber}}
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "number": "9566372450",
+    "exists": true,
+    "whatsappId": "919566372450@c.us"
+  }
+  ```
+  
+  ## 4. Contacts – Get All Contacts
+  
+  Endpoint:
+  
+  ```
+  GET {{baseUrl}}/api/sessions/{{sessionId}}/contacts
+  ```
+  
+  Response:
+  
+  ```
+  [
+    {
+      "id": "918825474846@c.us",
+      "name": "Naveen",
+      "pushName": "Naveen",
+      "number": "918825474846",
+      "isMyContact": true,
+      "isBlocked": false
+    }
+  ]
+  ```
+  
+  ## 5. Chats – Get All Chats
+  
+  Endpoint:
+  
+  ```
+  GET {{baseUrl}}/api/sessions/{{sessionId}}/chats?limit=50
+  ```
+  
+  Response:
+  
+  ```
+  [
+    {
+      "id": "121479341568027@lid",
+      "name": "Nakshatra Akka",
+      "isGroup": false,
+      "kind": "individual",
+      "unreadCount": 0,
+      "timestamp": 1793529918,
+      "lastMessage": "Hello Naveen, welcome!",
+      "lastMessageType": "text",
+      "archived": false,
+      "pinned": false,
+      "muted": false
+    }
+  ]
+  ```
+  
+  ## 6. Send Text Message
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-text
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "chatId": "{{chatId}}",
+    "text": "Hello from OpenWA!"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "messageId": "true_21238781087894@lid_3EB07C328D242DBA839632",
+    "timestamp": 1793531974
+  }
+  ```
+  
+  ## 7. Send Audio
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-audio
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "chatId": "{{chatId}}",
+    "url": "{{audioUrl}}",
+    "ptt": false
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "messageId": "true_121479341568027@lid_3EB02F109DF9C8DD067B60",
+    "timestamp": 1793522887
+  }
+  ```
+  
+  ## 8. Send Video
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-video
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "chatId": "{{chatId}}",
+    "url": "{{videoUrl}}",
+    "caption": "Testing video"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "messageId": "true_121479341568027@lid_3EB004B64A33941435133F",
+    "timestamp": 1793522112
+  }
+  ```
+  
+  ## 9. Send Document
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-document
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "chatId": "{{chatId}}",
+    "url": "{{documentUrl}}",
+    "filename": "DS Project 2.pdf"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "messageId": "true_121479341568027@lid_3EB00750CC44E14904ED03",
+    "timestamp": 1793522562
+  }
+  ```
+  
+  ## 10. Send Image
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-image
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "chatId": "{{chatId}}",
+    "url": "https://mug-casing-overtly.ngrok-free.dev/cartoon.jpg",
+    "caption": "Image caption"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "messageId": "true_121479341568027@lid_3EB0438213AB08A502FE8D",
+    "timestamp": 1793522758
+  }
+  ```
+  
+  ## 11. Send Template
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-template
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "chatId": "{{chatId}}",
+    "templateId": "{{template_ID}}"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "messageId": "true_121479341568027@lid_3EB0E8014AD417A20D3044",
+    "timestamp": 1793530939
+  }
+  ```
+  
+  ## 12. Send Bulk Messages
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-bulk
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "messages": [
+      {
+        "chatId": "{{chatId}}",
+        "type": "text",
+        "content": {
+          "text": "Hello from bulk"
+        }
+      }
+    ],
+    "options": {
+      "delayBetweenMessages": 3000
+    }
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "batchId": "batch_50c57972",
+    "status": "pending",
+    "totalMessages": 1,
+    "estimatedCompletionTime": "2026-11-01T10:56:59.621Z",
+    "statusUrl": "/api/sessions/30ba7e8a-0838-4adf-ba3f-7c10da6a8100/messages/batch/batch_50c57972"
+  }
+  ```
+  
+  ## 13. Edit Message
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/edit
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "chatId": "{{chatId}}",
+    "messageId": "{{messageId}}",
+    "body": "Hello Nakshatara, Welcome"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "messageId": "true_121479341568027@lid_3EB01F956EECC08294CC77",
+    "timestamp": 1793529918
+  }
+  ```
+  
+  ## 14. Delete Message
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/messages/delete
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "chatId": "{{chatId}}",
+    "messageId": "{{messageId}}"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "success": true
+  }
+  ```
+  
+  ## 15. Message History – Get Messages by Chat
+  
+  Endpoint:
+  
+  ```
+  GET {{baseUrl}}/api/sessions/{{sessionId}}/messages?chatId={{chatId}}
+  ```
+  
+  Request Payload: None (GET request).
+  
+  Response: Not provided.
+  
+  ## 16. Get Media – Retrieve Message Media
+  
+  Endpoint:
+  
+  ```
+  GET {{baseUrl}}/api/sessions/{{sessionId}}/messages/{{chatId}}/{{messageId}}/media
+  ```
+  
+  Request Payload: None (GET request).
+  
+  Response: Not provided.
+  
+  ## 17. Get Message – Retrieve Messages with Limit
+  
+  Endpoint:
+  
+  ```
+  GET {{baseUrl}}/api/sessions/{{sessionId}}/messages?chatId={{chatId}}&limit=50
+  ```
+  
+  Request Payload: None (GET request).
+  
+  Response: Not provided.
+  
+  ## 18. Create Template
+  
+  Endpoint:
+  
+  ```
+  POST {{baseUrl}}/api/sessions/{{sessionId}}/templates
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "name": "greeting",
+    "body": "Hello {{name}}, welcome!"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "id": "37b2a469-fcba-4257-a34b-4ab780a36665",
+    "sessionId": "30ba7e8a-0838-4adf-ba3f-7c10da6a8100",
+    "name": "greeting",
+    "body": "Hello Naveen, welcome!",
+    "header": null,
+    "footer": null,
+    "createdAt": "2026-11-01T10:41:22.000Z",
+    "updatedAt": "2026-11-01T10:41:22.000Z"
+  }
+  ```
+  
+  ## 19. Get Templates – Retrieve All Templates
+  
+  Endpoint:
+  
+  ```
+  GET {{baseUrl}}/api/sessions/{{sessionId}}/templates
+  ```
+  
+  Response:
+  
+  ```
+  [
+    {
+      "id": "37b2a469-fcba-4257-a34b-4ab780a36665",
+      "sessionId": "30ba7e8a-0838-4adf-ba3f-7c10da6a8100",
+      "name": "greeting",
+      "body": "Hello Naveen, welcome!",
+      "header": null,
+      "footer": null,
+      "createdAt": "2026-11-01T10:41:22.000Z",
+      "updatedAt": "2026-11-01T10:41:22.000Z"
+    }
+  ]
+  ```
+  
+  ## 20. Get Template – Retrieve a Specific Template
+  
+  Endpoint (as supplied):
+  
+  ```
+  GET {{baseUrl}}/api/sessions/{{sessionId}}/templates
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "id": "37b2a469-fcba-4257-a34b-4ab780a36665",
+    "sessionId": "30ba7e8a-0838-4adf-ba3f-7c10da6a8100",
+    "name": "greeting",
+    "body": "Hello Naveen, welcome!",
+    "header": null,
+    "footer": null,
+    "createdAt": "2026-11-01T10:41:22.000Z",
+    "updatedAt": "2026-11-01T10:41:22.000Z"
+  }
+  ```
+  
+  ## 21. Update Template
+  
+  Endpoint:
+  
+  ```
+  PUT {{baseUrl}}/api/sessions/{{sessionId}}/templates/{{templateId}}
+  ```
+  
+  Request Payload:
+  
+  ```
+  {
+    "name": "greeting",
+    "body": "Hi {{name}}, welcome to our service!"
+  }
+  ```
+  
+  Response:
+  
+  ```
+  {
+    "id": "37b2a469-fcba-4257-a34b-4ab780a36665",
+    "sessionId": "30ba7e8a-0838-4adf-ba3f-7c10da6a8100",
+    "name": "greeting",
+    "body": "Hi naveen, welcome to our service!",
+    "header": null,
+    "footer": null,
+    "createdAt": "2026-11-01T10:41:22.000Z",
+    "updatedAt": "2026-11-01T14:16:14.000Z"
+  }
+  ```
+  
+  ## 22. Delete Template
+  
+  Endpoint:
+  
+  ```
+  DELETE {{baseUrl}}/api/sessions/{{sessionId}}/templates/{{templateId}}
+  ```
+  
+  Request Payload: None specified.
+  
+  Response: Not provided.
+  
+  ## 
+}

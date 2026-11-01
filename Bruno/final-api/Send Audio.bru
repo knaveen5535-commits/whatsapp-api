@@ -1,0 +1,104 @@
+meta {
+  name: Send Audio
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-audio
+  body: json
+  auth: none
+}
+
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "chatId": "{{chatId}}",
+    "url": "{{audioUrl}}",
+    "ptt": true
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:2785
+  apiKey: 80d875d73cf6fce949766f1d447c82766f0efc054b5fc07b6d5c89d539df11f8
+  sessionId: 30ba7e8a-0838-4adf-ba3f-7c10da6a8100
+  chatId: 121479341568027@lid
+  audioUrl: https://mug-casing-overtly.ngrok-free.dev/test 1.ogg
+}
+
+example {
+  name: 200 - Success
+  
+  request: {
+    url: {{baseUrl}}/api/sessions/{{sessionId}}/messages/send-audio
+    method: POST
+    mode: json
+    headers: {
+      x-api-key: {{apiKey}}
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+        "chatId": "{{chatId}}",
+        "url": "{{audioUrl}}",
+        "ptt": false
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-request-id: daef3508-5752-4f89-b668-f29a0da60124
+      content-security-policy: default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self' data: blob: https:;object-src 'none';script-src 'self' 'nonce-9OR-gID_ixvCrF8X6SXEIn7S';script-src-attr 'none';style-src 'self' 'unsafe-inline';media-src 'self' data: blob: https:;connect-src 'self'
+      cross-origin-opener-policy: same-origin
+      cross-origin-resource-policy: cross-origin
+      origin-agent-cluster: ?1
+      referrer-policy: strict-origin-when-cross-origin
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      x-content-type-options: nosniff
+      x-dns-prefetch-control: off
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-permitted-cross-domain-policies: none
+      x-xss-protection: 0
+      vary: Origin
+      access-control-expose-headers: X-RateLimit-Limit-short,X-RateLimit-Remaining-short,X-RateLimit-Reset-short,X-RateLimit-Limit-medium,X-RateLimit-Remaining-medium,X-RateLimit-Reset-medium,X-RateLimit-Limit-long,X-RateLimit-Remaining-long,X-RateLimit-Reset-long,X-RateLimit-Limit-instance,X-RateLimit-Remaining-instance,X-RateLimit-Reset-instance,X-RateLimit-Limit-ingress-ip,X-RateLimit-Remaining-ingress-ip,X-RateLimit-Reset-ingress-ip,Retry-After,Retry-After-short,Retry-After-medium,Retry-After-long,Retry-After-instance,Retry-After-ingress-ip,Idempotent-Replayed
+      x-ratelimit-limit-short: 10
+      x-ratelimit-remaining-short: 9
+      x-ratelimit-reset-short: 1
+      x-ratelimit-limit-medium: 100
+      x-ratelimit-remaining-medium: 99
+      x-ratelimit-reset-medium: 60
+      x-ratelimit-limit-long: 1000
+      x-ratelimit-remaining-long: 999
+      x-ratelimit-reset-long: 3600
+      content-type: application/json; charset=utf-8
+      content-length: 86
+      etag: W/"56-Ju8ryMbexElqlJ15omBQ55E3lH8"
+      date: Sun, 01 Nov 2026 08:48:07 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 201
+      text: Created
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "messageId": "true_121479341568027@lid_3EB02F109DF9C8DD067B60",
+          "timestamp": 1793522887
+        }
+      '''
+    }
+  }
+}
